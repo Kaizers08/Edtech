@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech - Learn, Connect, Grow</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1F2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2563EB, #1E40AF);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            color: #2563EB;
+        }
+
+        .logo-text-green {
+            color: #10B981;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #6B7280;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #2563EB;
+        }
+
+        .btn-header {
+            background: #10B981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%);
+            padding: 80px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            border-radius: 60% 40% 70% 30%;
+            bottom: -120px;
+            left: -200px;
+            opacity: 0.8;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 900px;
+            height: 450px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            border-radius: 40% 60% 30% 70%;
+            bottom: -150px;
+            right: -250px;
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .text-cyan {
+            color: #0EA5E9;
+        }
+
+        .text-green {
+            color: #10B981;
+        }
+
+        .text-blue {
+            color: #2563EB;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .hero-audience {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #2563EB;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563EB;
+            border: 2px solid #2563EB;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #2563EB;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 3;
+        }
+
+        .image-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-frame img {
+            width: 100%;
+            border-radius: 12px;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        /* ===== WHAT WE OFFER ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: #2563EB;
+            margin-bottom: 60px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #E0F2FE, #D1FAE5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2563EB;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 15px;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        /* ===== FEATURE BAR ===== */
+        .feature-bar {
+            background: linear-gradient(135deg, #0EA5E9 0%, #10B981 100%);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item {
+            background: white;
+            border-radius: 50px;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: #E0F2FE;
+            color: #0EA5E9;
+        }
+
+        .icon-green {
+            background: #D1FAE5;
+            color: #10B981;
+        }
+
+        .feature-item span {
+            font-weight: 600;
+            color: #1F2937;
+            white-space: nowrap;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .section-gray {
+            background: #F9FAFB;
+            padding: 80px 0 140px;
+            position: relative;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta {
+            background: linear-gradient(135deg, #0EA5E9 0%, #10B981 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .btn-cta {
+            background: white;
+            color: #2563EB;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-audience {
+                font-size: 22px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-item {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .section-title,
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎓</div>
+                    <span><span class="logo-text">Ed</span><span class="logo-text-green">Tech</span></span>
+                </div>
+                <nav class="nav">
+                    <a href="#features">Features</a>
+                    <a href="#why">How It Works</a>
+                </nav>
+                <button class="btn-header">Start Learning</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Learn, <span class="text-cyan">Connect</span>, <span class="text-green">Grow.</span></h1>
+                    <p class="hero-subtitle">Your Mentoring Platform for</p>
+                    <p class="hero-audience">
+                        <span class="text-blue">Students</span>, <span class="text-green">Mentee & Mentors</span>
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Find a Mentor →</button>
+                        <button class="btn-secondary">Become a Mentor</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Team collaboration">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="#ffffff"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- WHAT WE OFFER -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">What We Offer?</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">👨‍🏫</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Choose Your Mentor</h3>
+                        <p class="card-text">Receive expert feedback tailored to your goals</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">🎯</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Expert Mentorship</h3>
+                        <p class="card-text">Learn from industry leading mentors</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">📊</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Progress Tracking</h3>
+                        <p class="card-text">Learn from the best in the industry</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEATURE BAR -->
+            <div class="feature-bar">
+                <div class="feature-item">
+                    <div class="feature-icon icon-blue">💻</div>
+                    <span>Personalized Mentorship</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-blue">📹</div>
+                    <span>Live Sessions</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-green">📈</div>
+                    <span>Track Progress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">✅</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Quality Guaranteed</h3>
+                        <p class="card-text">All mentors are verified and rated by our community</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">🎓</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Personalized Learning</h3>
+                        <p class="card-text">Customized learning paths tailored to your goals</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">👥</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Community Support</h3>
+                        <p class="card-text">Join a vibrant community of learners and mentors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,40 C360,90 720,10 1080,50 C1200,70 1320,30 1440,40 L1440,100 L0,100 Z" fill="url(#gradient)"/>
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#0EA5E9"/>
+                        <stop offset="100%" stop-color="#10B981"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Learning Journey Today!</h2>
+            <button class="btn-cta">Get Started</button>
+        </div>
+    </section>
+</body>
+</html>
